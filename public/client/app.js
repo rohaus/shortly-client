@@ -12,7 +12,9 @@ angular.module('shortlyApp', [])
   });
 })
 .controller('indexCtrl',function($scope, $http){
-  $scope.name = "Pieter";
+  $scope.test = function() {
+    console.log("scope searchText: ", $scope.searchText);
+  };
   $http.get('/links')
   .success(function(data, status, headers, config){
     console.log('SUCCESS!');
@@ -35,10 +37,5 @@ angular.module('shortlyApp', [])
     .error(function(data, status){
       console.log('Error');
     });
-  };
-})
-.controller('searchCtrl', function($scope) {
-  $scope.updateSearch = function(event) {
-    console.log($scope.searchBox);
   };
 });
