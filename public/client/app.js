@@ -12,6 +12,8 @@ angular.module('shortlyApp', [])
   });
 })
 .controller('indexCtrl',function($scope, $http){
+  $scope.predicate = 'visits';
+  $scope.reverse = 'true';
   $scope.test = function() {
     console.log("scope searchText: ", $scope.searchText);
   };
