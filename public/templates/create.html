@@ -1,6 +1,6 @@
 <div>
-  <form ng-submit="shorten()">
-    <input class="text" type="text" ng-model="data.url" name="url">
+  <form novalidate ng-submit="shorten()" class="css-form">
+    <input class="text" type="url" ng-model="data.url" name="url">
     <input type="submit" value="Shorten">
   </form>
   <img class="spinner" src="/spiffygif_46x46.gif">
