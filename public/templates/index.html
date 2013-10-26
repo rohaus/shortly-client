@@ -1,0 +1,19 @@
+<div class="sorter">
+  <div class="sort visit">Visit</div>
+  <div class="sort lastVisit">Last Visit</div>
+  <div class="sort">Sort by:</div>
+</div>
+<div ng-controller="indexCtrl">
+  <div ng-repeat="link in links">
+    <div class="linkView">
+      <img src="/redirect_icon.png"/>
+      <div class="info">
+        <div class="visits"><span class="count">{{link.visits}}</span>Visits</div>
+        <div class="title">{{link.title}}</div>
+        <div class="original">{{link.url}}</div>
+        <a href="{{link.base_url}}/{{link.code}}">{{link.base_url}}/{{link.code}}</a>
+        <div class="updatedAt">Last visited:{{link.updated_at}}</div>
+      </div>
+    </div>
+  </div>
+</div>

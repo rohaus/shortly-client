@@ -1,0 +1,13 @@
+<div class="sorter">
+  <div class="sort visit">Visit</div>
+  <div class="sort lastVisit">Last Visit</div>
+  <div class="sort">Sort by:</div>
+</div>
+<div ng-controller="createCtrl">
+  <form ng-submit="shorten()">
+    <input class="text" type="text" ng-model="data.url" name="url">
+    <input type="submit" value="Shorten">
+  </form>
+  <img class="spinner" src="/spiffygif_46x46.gif">
+  <div class="message"></div>
+</div>
