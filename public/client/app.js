@@ -7,9 +7,34 @@ angular.module('shortlyApp', [])
   .when('/create', {
     controller:'createCtrl',
     templateUrl:'/templates/create.html'})
+  .when('/login', {
+    controller: 'loginCtrl',
+    templateUrl:'/templates/login.html'})
+  .when('/signup', {
+    controller: 'loginCtrl',
+    templateUrl:'/templates/signup.html'})
   .otherwise({
     redirectTo: '/'
   });
+})
+.run(function($rootScope, $location, UserService){
+  $rootScope.$on('$routeChangeStart',function(event, next){
+    if(!UserService.isAuthenticated() && next.controller !== 'loginCtrl') {
+      $location.path('/login');
+    }
+  });
+})
+.factory('UserService', function($q, $http) {
+  var service = {
+    currentUser: null,
+    // getCurrentUser: function() {
+
+    // },
+    isAuthenticated: function() {
+      return !!service.currentUser;
+    }
+  };
+  return service;
 })
 .controller('indexCtrl',function($scope, $http){
   $scope.predicate = 'visits';
@@ -40,4 +65,7 @@ angular.module('shortlyApp', [])
       console.log('Error');
     });
   };
+})
+.controller('loginCtrl', function($scope) {
+
 });
